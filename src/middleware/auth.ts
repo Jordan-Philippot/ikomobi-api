@@ -12,11 +12,6 @@ if (!secret) {
   );
 }
 
-interface JwtPayload {
-  id: number;
-  username: string;
-}
-
 export const authMiddleware = (
   req: Request,
   res: Response,

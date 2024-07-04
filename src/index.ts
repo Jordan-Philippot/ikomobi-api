@@ -10,12 +10,12 @@ const app = express();
 const PORT = 5000;
 
 const corsOptions = {
-  origin: "http://localhost:3000",
+  origin: process.env.FRONT_ORIGIN,
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   credentials: true,
 };
 app.use(cors(corsOptions));
-//(process.env.PORT as string) ||
+
 app.use(bodyParser.json());
 
 app.use("/todos", todoRouter);

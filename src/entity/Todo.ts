@@ -4,17 +4,17 @@ import { User } from "./User";
 @Entity()
 export class Todo {
   @PrimaryGeneratedColumn()
-  id!: number;
+  id: number;
 
   @Column()
-  text!: string;
+  text: string;
 
   @Column({ default: false })
   completed!: boolean;
 
   @ManyToOne(() => User, (user) => user.todos)
-  user!: User;
+  user: User;
 
-  @Column()
-  created_at!: Date;
+  @Column({ type: "timestamp", default: () => "CURRENT_TIMESTAMP" })
+  created_at: Date;
 }
