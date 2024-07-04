@@ -4,10 +4,18 @@ import bodyParser from "body-parser";
 import { AppDataSource } from "./ormconfig";
 import { todoRouter } from "./routes/todo";
 import { authRouter } from "./routes/auth";
+import cors from "cors";
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = 5000;
 
+const corsOptions = {
+  origin: "http://localhost:3000",
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  credentials: true,
+};
+app.use(cors(corsOptions));
+//(process.env.PORT as string) ||
 app.use(bodyParser.json());
 
 app.use("/todos", todoRouter);
