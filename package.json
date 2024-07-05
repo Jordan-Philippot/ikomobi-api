@@ -2,13 +2,11 @@
   "name": "ikomobi-api",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "ts-node src/index.ts",
-    "typeorm": "typeorm-ts-node-commonjs",
-    "build": "tsc",
-    "postinstall": "npm run build"
+    "typeorm": "typeorm-ts-node-commonjs"
   },
   "keywords": [],
   "author": "",
