@@ -7,10 +7,10 @@ import { authRouter } from "./routes/auth";
 import cors from "cors";
 
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 const corsOptions = {
-  origin: process.env.FRONT_ORIGIN as string,
+  origin: process.env.FRONT_ORIGIN,
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   credentials: true,
 };

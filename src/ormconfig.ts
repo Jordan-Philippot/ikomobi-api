@@ -15,5 +15,3 @@ export const AppDataSource = new DataSource({
   migrations: ["src/migrations/*.ts"],
   subscribers: [],
 });
-// npm run typeorm migration:generate "src/migrations/createUserAndTodo" --dataSource "src/ormconfig.ts"
-// npm run typeorm migration:generate ./src/migrations/createUserAndTodo --dataSource ./src/ormconfig.ts
