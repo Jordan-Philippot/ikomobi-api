@@ -2,10 +2,12 @@
   "name": "ikomobi-api",
   "version": "1.0.0",
   "description": "",
-  "main": "index.ts",
+  "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ts-node src/index.ts",
+    "start": "node src/.",
+    "build": "tsc",
+    "dev": "nodemon",
     "typeorm": "typeorm-ts-node-commonjs"
   },
   "keywords": [],
@@ -20,6 +22,7 @@
     "jsonwebtoken": "^9.0.2",
     "mysql": "^2.18.1",
     "mysql2": "^3.10.1",
+    "nodemon": "^3.1.4",
     "reflect-metadata": "^0.2.2",
     "typeorm": "^0.3.20"
   },
@@ -33,5 +36,9 @@
     "@types/node": "^20.14.9",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.2"
+  },
+  "nodemonConfig": {
+    "ext": "ts",
+    "exec": "npm run build && npm start"
   }
 }
