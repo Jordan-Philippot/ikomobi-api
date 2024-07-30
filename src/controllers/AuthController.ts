@@ -8,7 +8,7 @@ export class AuthController {
   static login = async (req: Request, res: Response) => {
     const { username, password } = req.body;
     const userRepository = AppDataSource.getRepository(User);
-    const user = await userRepository.findOneBy({ username });
+    const user = await userRepository.findOneBy({ username: username });
 
     if (!user) {
       return res.status(400).json({ message: "Invalid username or password" });
@@ -26,6 +26,6 @@ export class AuthController {
         expiresIn: "1h",
       }
     );
-    res.json({ token });
+    res.json({ user: user, token });
   };
 }
