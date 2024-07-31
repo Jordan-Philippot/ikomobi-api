@@ -5,9 +5,9 @@
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ts-node src/index.ts",
+    "start": "node src/.",
     "build": "tsc",
-    "dev": "nodemon",
+    "dev": "ts-node src/index.ts",
     "typeorm": "typeorm-ts-node-commonjs"
   },
   "keywords": [],
