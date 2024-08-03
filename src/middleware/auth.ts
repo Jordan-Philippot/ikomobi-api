@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import jwt from "jsonwebtoken";
+import jwt, { TokenExpiredError } from "jsonwebtoken";
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -32,7 +32,14 @@ export const authMiddleware = (
     (req as any).user = decoded;
     next();
   } catch (error) {
-    console.error("JWT verification error:", error);
-    res.status(401).json({ message: "Invalid token" });
+    if (error instanceof TokenExpiredError) {
+      return res
+        .status(401)
+        .json({ message: "Session expired, please log in again" });
+    } else {
+      return res
+        .status(401)
+        .json({ message: "Invalid token, please log in again" });
+    }
   }
 };
